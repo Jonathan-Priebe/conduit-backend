@@ -1,0 +1,11 @@
+Dockerfile
+.gitignore
+.git/
+__pycache__
+project-logo.png
+env/
+*.pyc
+*.sqlite3
+*.db
+*.log
+*.bak
