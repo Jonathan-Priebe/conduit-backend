@@ -26,4 +26,5 @@ else:
 fi
 
 #Start and runs server at port 3000
-python manage.py runserver 0.0.0.0:3000
+#python manage.py runserver 0.0.0.0:3000 ##For debug
+gunicorn conduit.wsgi:application --bind 0.0.0.0:3000
