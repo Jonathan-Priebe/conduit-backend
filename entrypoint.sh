@@ -1,5 +1,12 @@
 #!/bin/bash
 
+# If CI_MODE is enabled, run Gunicorn config check and exit
+if [ "$CI_MODE" = "true" ]; then
+  echo "CI mode detected: running Gunicorn config check only..."
+  gunicorn conduit.wsgi:application --check-config --log-level warning
+  exit $?
+fi
+
 #Applied Django migrations to sync database schema with models.
 python manage.py migrate
 
