@@ -8,10 +8,10 @@ if [ "$CI_MODE" = "true" ]; then
 
   if [ $EXIT_CODE -eq 0 ]; then
     echo "Gunicorn config check passed. CI mode completed successfully."
-    echo "CI_SUCCESS=true" > /tmp/ci_status.txt
+    echo "CI_SUCCESS=true" > /ci_artifacts/ci_status.txt
   else
     echo "Gunicorn config check failed with exit code $EXIT_CODE."
-    echo "CI_SUCCESS=false" > /tmp/ci_status.txt
+    echo "CI_SUCCESS=false" > /ci_artifacts/ci_status.txt
 
     # Create GitHub Issue
     if [ -n "$GH_TOKEN" ]; then
